@@ -23,7 +23,7 @@ export const useGetAllArticles = () => {
 
 export const useGetArticleDetails = (articleId) => {
   return useQuery({
-    queryKey: ["articles"],
+    queryKey: ["articles", articleId],
     queryFn: () => api.getArticleDetails(articleId),
     staleTime: 500,
     gcTime: 500
