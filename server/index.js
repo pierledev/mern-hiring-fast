@@ -36,7 +36,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 app.use(express.json());
-app.use(helmet());
+// app.use(helmet());
 app.use(xss());
 app.use(mongoSanitize());
 app.use(cookieParser());
