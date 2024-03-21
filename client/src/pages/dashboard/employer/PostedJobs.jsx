@@ -28,7 +28,7 @@ const PostedJobs = () => {
       <div className="grid content-start gap-8">
         <h1 className="text-4xl lg:text-left">Posted Jobs</h1>
         {isGetPostedJobsPending && <Loader />}
-        {isGetPostedJobsError && <h3>{postedJobsError.message}</h3>}
+        {isGetPostedJobsError && <h3 className="text-center lg:text-left">{postedJobsError.message}</h3>}
         {postedJobs && postedJobs.data.length === 0 && (
           <h3 className="text-center lg:text-left">No jobs found.</h3>
         )}
