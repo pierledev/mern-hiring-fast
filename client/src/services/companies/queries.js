@@ -5,6 +5,8 @@ export const useGetAllCompanies = (queryParameters) => {
   return useQuery({
     queryKey: ["companies", queryParameters],
     queryFn: () => api.getAllCompanies(queryParameters),
+    staleTime: 500,
+    gcTime: 500
   });
 };
 

@@ -74,7 +74,7 @@ const PostedJobs = () => {
                       <td>{index + 1}</td>
                       <td>
                         <Link
-                          to={`/jobs/${user?.company?.toLowerCase()}/${_id}`}
+                          to={`/companies/${user?.company?.toLowerCase()}/jobs/${_id}`}
                           className="underline hover:no-underline"
                         >
                           {position}

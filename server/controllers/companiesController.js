@@ -31,11 +31,6 @@ export const getAllCompanies = async (req, res) => {
           // Accumulate all jobs for each company into an array
           id: '$_id',
           position: '$position',
-          location: '$location',
-          minSalary: '$minSalary',
-          maxSalary: '$maxSalary',
-          experience: '$experience',
-          jobType: '$jobType',
         },
       },
     },
@@ -54,7 +49,9 @@ export const getAllCompanies = async (req, res) => {
 export const getSingleCompany = async (req, res) => {
   const { company } = req.params;
 
-  const jobs = await Job.find({ company })
+  const jobs = await Job.find({
+    company: { $regex: new RegExp('^' + company + '$', 'i') },
+  })
     .populate({
       path: 'createdBy',
       select: 'companyLogo',
@@ -69,5 +66,5 @@ export const getSingleCompany = async (req, res) => {
     );
   }
 
-  res.status(StatusCodes.OK).json({ success: true, data: { company, jobs } });
+  res.status(StatusCodes.OK).json({ success: true, data: jobs });
 };

@@ -22,7 +22,7 @@ const JobDetails = () => {
     return toast.error(error.message);
   }
 
-  const isApplied = Boolean(data.data.appliedBy[user._id]);
+  const isApplied = Boolean(data.data.appliedBy[user?._id]);
 
   const handleApplyJob = () => {
     if (!user) {
@@ -104,14 +104,16 @@ const JobDetails = () => {
           <p className="md:text-lg">{formatToLocaleDate(data.data.deadline)}</p>
         </div>
 
-        <button
-          type="button"
-          className={`btn btn-update mt-5 px-5 py-3 text-xl ${isApplied ? "cursor-not-allowed bg-gray-300 hover:bg-gray-300" : ""}`}
-          disabled={isApplied}
-          onClick={handleApplyJob}
-        >
-          {isApplied ? "Applied" : "Apply Now"}
-        </button>
+        {user?.userType !== "employer" && (
+          <button
+            type="button"
+            className={`btn btn-update mt-5 px-5 py-3 text-xl ${isApplied ? "cursor-not-allowed bg-gray-300 hover:bg-gray-300" : ""}`}
+            disabled={isApplied}
+            onClick={handleApplyJob}
+          >
+            {isApplied ? "Applied" : "Apply Now"}
+          </button>
+        )}
       </Container>
     </article>
   );

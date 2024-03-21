@@ -110,7 +110,7 @@ const App = () => {
               element: <Companies />,
             },
             {
-              path: "/companies/:id",
+              path: "/companies/:company/jobs",
               element: <CompanyDetails />,
             },
             {

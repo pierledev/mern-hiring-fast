@@ -35,13 +35,12 @@ const BlogArticle = () => {
   }
 
   if (isGettingArticleError) {
-    console.log(articleError);
     toast.error(articleError.response.data.message);
     return;
   }
 
-  const isLiked = Boolean(data.data.likedBy[user._id]);
-  const isSaved = Boolean(data.data.savedBy[user._id]);
+  const isLiked = Boolean(data.data.likedBy[user?._id]);
+  const isSaved = Boolean(data.data.savedBy[user?._id]);
 
   const countLikes = Object.keys(data.data.likedBy).length;
   const countSaves = Object.keys(data.data.savedBy).length;
@@ -174,7 +173,7 @@ const BlogArticle = () => {
           }}
           className="py-10 text-justify leading-relaxed"
         />
-        {user?.userType === "job-seeker" && (
+        {user?.userType !== "employer" && (
           <div className="mb-10 flex items-center gap-5">
             <button
               type="button"
@@ -188,7 +187,7 @@ const BlogArticle = () => {
             </button>
             <button
               type="button"
-              className={`flex items-center gap-1 text-neutral-400 transition-all duration-300 ease-linear ${
+              className={`flex items-center gap-1 transition-all duration-300 ease-linear ${
                 isSaved ? "text-amber-500" : "text-neutral-400"
               }`}
               onClick={isSaved ? handleUnsave : handleSave}

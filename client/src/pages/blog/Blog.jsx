@@ -30,7 +30,7 @@ const Blog = () => {
       {/* Articles */}
       <section>
         {!data && (
-          <Container>
+          <Container className="flex justify-center">
             {isPending && <Loader />}
             {isError && (
               <h3 className="text-center">
