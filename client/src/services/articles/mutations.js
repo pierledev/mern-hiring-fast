@@ -21,7 +21,7 @@ export const useUpdateArticle = () => {
     mutationFn: ({ articleId, updatedArticle }) =>
       api.updateArticle({ articleId, updatedArticle }),
     onSuccess: () => {
-      queryClient.invalidateQueries(["postedArticles"]);
+      queryClient.invalidateQueries(["articles"]);
     }
   });
 };

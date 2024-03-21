@@ -6,7 +6,6 @@ import toast from "react-hot-toast";
 const CompanyDetails = () => {
   const { company } = useParams();
   const { data, isPending, isError, error } = useGetCompanyDetails(company);
-  console.log(error);
 
   if (isPending) {
     return <PageLoader />;
@@ -15,8 +14,6 @@ const CompanyDetails = () => {
   if (isError) {
     return toast.error(error.response.data.message);
   }
-
-  console.log(data);
 
   return (
     <article>

@@ -31,7 +31,6 @@ export const updateUser = async (req, res) => {
     }
 
     const { public_id, url } = await handleUpload(userPicture);
-    console.log(public_id, url);
     user.userPicture = { public_id, url };
   }
 
@@ -39,7 +38,7 @@ export const updateUser = async (req, res) => {
   if (companyLogo) {
     // Check wether user.companyLogo is an empty object
     if (Object.keys(user.companyLogo).length !== 0) {
-      console.log(Object.keys(user.companyLogo).length);
+      // console.log(Object.keys(user.companyLogo).length);
       // Delete previous company logo from Cloudinary if exists
       await handleDeleteImage(user.companyLogo.public_id);
     }
