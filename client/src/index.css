@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-neutral-50 font-hanken text-base text-neutral-700 lg:text-lg;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    @apply font-bold text-neutral-950;
+  }
+
+  h1 {
+    @apply text-center text-5xl md:text-6xl lg:text-7xl lg:leading-tight;
+  }
+
+  h2 {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+  }
+
+  h3 {
+    @apply text-lg md:text-xl;
+  }
+
+  h4 {
+    @apply text-base;
+  }
+
+  section {
+    @apply py-10 sm-upper:py-16 lg:py-20;
+  }
+
+  select {
+    appearance: none;
+  }
+
+  table {
+    @apply rounded-2xl bg-white;
+  }
+
+  th {
+    @apply whitespace-nowrap px-5 py-3 text-left;
+  }
+
+  tr {
+    @apply border even:bg-neutral-50;
+  }
+
+  td {
+    @apply whitespace-nowrap px-5 py-3 text-base capitalize;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply block py-2 transition-all duration-100 ease-linear hover:opacity-70 lg:py-0;
+  }
+
+  .btn {
+    @apply grid place-items-center rounded-full px-5 py-1 font-medium transition-all;
+  }
+
+  .btn-primary {
+    @apply border border-blue-600 bg-blue-600 text-neutral-50 hover:border-blue-500 hover:bg-blue-500;
+  }
+
+  .btn-secondary {
+    @apply border border-neutral-200 hover:text-neutral-950;
+  }
+
+  .btn-update {
+    @apply rounded-full bg-purple-600 px-3 py-1 text-white transition hover:bg-purple-500;
+  }
+
+  .btn-danger {
+    @apply rounded-full bg-red-600 px-3 py-1 text-white transition hover:bg-red-500;
+  }
+
+  .btn-archive {
+    @apply rounded-full bg-green-600 px-3 py-1 text-white transition hover:bg-green-500;
+  }
+
+  .tag {
+    @apply rounded-full border border-blue-400 bg-blue-50 px-3 py-[1px] text-sm font-medium text-blue-400;
+  }
+
+  .copy-text {
+    @apply grid gap-2 lg:gap-3;
+  }
+
+  .copy-text p {
+    @apply text-lg lg:text-2xl;
+  }
+
+  .transition {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .table-row-head {
+    @apply w-full bg-neutral-950 text-white;
+  }
+
+  .zoom-in-out {
+    animation: zoomInOut 2s infinite; /* Adjust the duration and other properties as needed */
+  }
+
+  @keyframes zoomInOut {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .loader {
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background:
+      radial-gradient(farthest-side, rgba(59, 130, 246, 0.1) 94%, #0000) top/8px
+        8px no-repeat,
+      conic-gradient(#0000 30%, rgba(59, 130, 246, 0.1));
+    animation: loader 1s infinite linear;
+  }
+
+  @keyframes loader {
+    100% {
+      transform: rotate(1turn);
+    }
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .truncate-1 {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .truncate-3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+}
+
+.ql-container {
+  @apply min-h-64 overflow-hidden rounded-b-3xl bg-white text-base;
+}
+
+.ql-container h1 {
+  @apply text-left;
+}
+
+.ql-editor {
+  @apply w-full;
+}
+
+.ql-toolbar {
+  @apply w-full rounded-t-3xl;
+}
