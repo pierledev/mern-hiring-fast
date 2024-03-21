@@ -19,7 +19,7 @@ export const handleUpload = async (file) => {
       crop: 'limit',
     }, (error, result) => {
       if (error) {
-        reject(error);
+        reject('error');
       } else {
         resolve({ public_id: result.public_id, url: result.secure_url });
       }

@@ -68,8 +68,12 @@ const Profile = () => {
       },
       onError: (error) => {
         toast.error(
-          error.message ||
-            "There is something wrong in our end. Please try again later.",
+          error.response.data.message === "request entity too large"
+            ? "Only upload small image/don't need to upload image"
+            : error.response.data.message ||
+                error.response.data ||
+                error.message ||
+                "There is something wrong in our end. Please try again later.",
         );
       },
     });

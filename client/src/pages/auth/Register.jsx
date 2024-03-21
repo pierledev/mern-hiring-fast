@@ -35,7 +35,7 @@ const Register = () => {
 
   if (isError) {
     toast.error(
-      error.response.data.message || error.response.data || error.message,
+      error.response.data.message === 'request entity too large' ? 'Only upload small image/don\'t need to upload image' : error.response.data.message || error.response.data || error.message,
     );
   }
 
